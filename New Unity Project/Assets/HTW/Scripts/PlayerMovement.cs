@@ -7,49 +7,63 @@ public class PlayerMovement : MonoBehaviour {
 	Rigidbody2D rbPlayer;
 	Vector2 move;
     public Collider2D atkTrigger;
+    public PlayerAtkTrigger pat;
 	public bool grounded = false;
 	public float speed;
 	public float jumpspeed;
     public int maxHP = 3;
     int currHP;
-    public float atkRate, atkCD;
+    float atkTimer;
+    float atkCD = 2;
     bool lookDir;
+   
 
     // Use this for initialization
     void Start () {
 		rbPlayer = GetComponent<Rigidbody2D> ();
+        lookDir = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		move = new Vector2 (Input.GetAxisRaw ("Horizontal"), 0);
-        if (move.x > 0)
+        if (move.x > 0 && !lookDir)
         {
-            lookDir = true;
+            RotRight();
+            
         }
-        else
-            lookDir = false;
-     //TODO 
-     //umdrehen richten 
-     //atktrigger richtig einbinden
+        if (move.x < 0 && lookDir)
+        {
+            RotLeft();
+        }
 		
-            if (atkRate > 0)
-                atkRate -= Time.deltaTime;
+            if (atkTimer > 0)
+                atkTimer -= Time.deltaTime;
 
-            if (atkRate < 0)
-                atkRate = 0;
+            if (atkTimer < 0)
+                atkTimer = 0;
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (atkRate == 0)
+            if (atkTimer == 0)
             {
                     Attack();
-                    atkRate = atkCD;
-                Debug.Log(atkRate);
+                    atkTimer = atkCD;
+                Debug.Log(atkTimer);
             }
         }
     }
 	
+    void RotRight()
+    {
+        gameObject.transform.Rotate(new Vector3(0, 180, 0));
+        lookDir = true;
+    }
+    void RotLeft()
+    {
+        gameObject.transform.Rotate(new Vector3(0, 180, 0));
+        lookDir = false;
+    }
 
 	void FixedUpdate(){
         rbPlayer.AddForce(move * speed*Time.deltaTime);
@@ -74,6 +88,11 @@ public class PlayerMovement : MonoBehaviour {
 
     void Attack()
     {
-       
+     //TODO  
+     //atktrigger richtig einbinden
+       /* if (atkTrigger.IsTouching(pat.GetCol))
+        {
+            Destroy(pat.GetCol.gameObject);
+        }*/
     }
 }
