@@ -7,21 +7,25 @@ public class PlayerMovement : MonoBehaviour {
 	Rigidbody2D rbPlayer;
 	Vector2 move;
     public Collider2D atkTrigger;
-    public PlayerAtkTrigger pat;
+    public AtkTrigger pat;
 	public bool grounded = false;
 	public float speed;
 	public float jumpspeed;
     public int maxHP = 3;
-    int currHP;
-    float atkTimer;
-    float atkCD = 2;
+    public int currHP;
+    float atkTimer, invul;
+    float atkCD = 1;
+    float invTime = 2;
     bool lookDir;
+    Animator anim;
    
 
     // Use this for initialization
     void Start () {
 		rbPlayer = GetComponent<Rigidbody2D> ();
         lookDir = true;
+        anim = GetComponent<Animator>();
+        currHP = maxHP;
 	}
 	
 	// Update is called once per frame
@@ -29,44 +33,46 @@ public class PlayerMovement : MonoBehaviour {
 		move = new Vector2 (Input.GetAxisRaw ("Horizontal"), 0);
         if (move.x > 0 && !lookDir)
         {
-            RotRight();
+            Rotate();
             
         }
         if (move.x < 0 && lookDir)
         {
-            RotLeft();
+            Rotate();
         }
-		
-            if (atkTimer > 0)
-                atkTimer -= Time.deltaTime;
 
-            if (atkTimer < 0)
-                atkTimer = 0;
+        if (invul > 0)
+            invul -= Time.deltaTime;
+
+        if (invul < 0)
+            invul = 0;
+
+        if (atkTimer > 0)
+            atkTimer -= Time.deltaTime;
+
+        if (atkTimer < 0)
+            atkTimer = 0;
 
         if (Input.GetMouseButtonDown(0))
         {
             if (atkTimer == 0)
             {
-                    Attack();
+                    MeleeAttack();
                     atkTimer = atkCD;
-                Debug.Log(atkTimer);
             }
         }
     }
 	
-    void RotRight()
+    void Rotate()
     {
         gameObject.transform.Rotate(new Vector3(0, 180, 0));
-        lookDir = true;
+        lookDir = !lookDir;
     }
-    void RotLeft()
-    {
-        gameObject.transform.Rotate(new Vector3(0, 180, 0));
-        lookDir = false;
-    }
+   
 
 	void FixedUpdate(){
         rbPlayer.AddForce(move * speed*Time.deltaTime);
+        anim.SetFloat("moveH", move.x);
         if (grounded)
         {
             if (Input.GetKeyDown("space"))
@@ -85,14 +91,30 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-
-    void Attack()
+    public void TakeDmg(int dmg)
     {
-     //TODO  
-     //atktrigger richtig einbinden
-       /* if (atkTrigger.IsTouching(pat.GetCol))
+        if (invul == 0) { 
+            Debug.Log("player DMG");
+            currHP -= dmg;
+            invul = invTime;
+            if (currHP <= 0)
+                Death();
+        }
+    }
+
+
+    void MeleeAttack()
+    {
+
+        anim.Play("DragonAtk", -1, 0f);
+        if (atkTrigger.IsTouching(pat.GetCol()))
         {
-            Destroy(pat.GetCol.gameObject);
-        }*/
+            Destroy(pat.GetCol().gameObject);
+        }
+    }
+
+    void Death()
+    {
+
     }
 }

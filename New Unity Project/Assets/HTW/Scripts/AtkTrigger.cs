@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAtkTrigger : MonoBehaviour {
+public class AtkTrigger : MonoBehaviour {
     Collider2D foundCol;
+    public string target;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(target))
         {
         foundCol = collision;
         }
