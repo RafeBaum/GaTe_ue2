@@ -7,8 +7,6 @@ public class EnemyControl : MonoBehaviour {
     public float speed, jumpspeed;
     public AtkTrigger eat;
     public Collider2D enemyAtkTrigger;
-    int maxHp = 100;
-    int currHp;
     public float hitRange;
     float atkDelay, atkTimer;
     Animator anim;
@@ -19,7 +17,6 @@ public class EnemyControl : MonoBehaviour {
     // Use this for initialization
 	void Start () {
         enemyRB = GetComponent<Rigidbody2D>();
-        currHp = maxHp;
         anim = GetComponent<Animator>();
         playerTrans = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         lookDir = true;
@@ -72,15 +69,7 @@ public class EnemyControl : MonoBehaviour {
         }
     }
 
-    void TakeDamage(int dmg)
-    {
-        Debug.Log("enemy takeDMG");
-        currHp -= dmg;
-        if(currHp<= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+  
 
     void Attack()
     {

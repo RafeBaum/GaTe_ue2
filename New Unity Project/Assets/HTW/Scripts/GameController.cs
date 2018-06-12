@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     public Text  ripTxt;
@@ -11,7 +12,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ripTxt.gameObject.SetActive(false);
+		ripTxt.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -43,7 +44,16 @@ public class GameController : MonoBehaviour {
     void End()
     {
         Time.timeScale = 0;
-        ripTxt.gameObject.SetActive(true);
-
+		ripTxt.text = "well you're dead";
+		ripTxt.enabled = true;
+		ReloadDelay ();
     }
+
+	 IEnumerator ReloadDelay (){
+
+		yield return new WaitForSecondsRealtime (2);
+
+		SceneManager.LoadScene ((SceneManager.GetActiveScene().buildIndex));
+	}
+
 }
