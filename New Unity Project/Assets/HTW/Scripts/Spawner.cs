@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Instantiate(Enemy, transform.position + offset, transform.rotation);
+            Destroy(gameObject);
         }
     }
 }

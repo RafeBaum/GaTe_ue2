@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ripTxt.gameObject.SetActive(false);
+        ripTxt.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -42,8 +42,9 @@ public class GameController : MonoBehaviour {
 
     void End()
     {
+        ripTxt.text = "he's dead Jim...";
         Time.timeScale = 0;
-        ripTxt.gameObject.SetActive(true);
+        ripTxt.enabled =true;
 
     }
 }

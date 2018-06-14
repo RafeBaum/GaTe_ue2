@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     
 	Rigidbody2D rbPlayer;
-	Vector2 move;
+	public Vector2 move;
     public Collider2D atkTrigger;
     public AtkTrigger pat;
 	public bool grounded = false;
