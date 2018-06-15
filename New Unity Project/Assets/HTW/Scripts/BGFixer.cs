@@ -8,7 +8,7 @@ public class BGFixer : MonoBehaviour {
     
     public void OnBecameInvisible()
     {
-        Debug.Log("invis Call");
+       
         gameObject.transform.position = new Vector3(transform.position.x + offset, transform.position.y, transform.position.z);
     }
 

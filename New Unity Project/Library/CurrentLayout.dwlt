@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 5011
+  controlID: 2742
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 4956
+  controlID: 2909
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 492}
   m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 5012
+  controlID: 2743
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -314,13 +314,13 @@ MonoBehaviour:
   m_MaximizeOnPlay: 1
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 05000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
-    m_HBaseRangeMin: -407.5
-    m_HBaseRangeMax: 407.5
+    m_HBaseRangeMin: -252.44444
+    m_HBaseRangeMax: 252.44444
     m_VBaseRangeMin: -142
     m_VBaseRangeMax: 142
     m_HAllowExceedBaseRangeMin: 1
@@ -392,9 +392,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.6300244, y: -1.3082877, z: 0.36523438}
+    m_Target: {x: 12.903999, y: -3.2383604, z: 0.23756532}
     speed: 2
-    m_Value: {x: 5.6300244, y: -1.3082877, z: 0.36523438}
+    m_Value: {x: 12.903999, y: -3.2383604, z: 0.23756532}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -426,9 +426,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 16.544561
+    m_Target: 29.3733
     speed: 2
-    m_Value: 16.544561
+    m_Value: 29.3733
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -469,6 +469,7 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 1107949049355815860, guid: 688d2a6b48f2adb4fa5ae86c4c942ca7, type: 2}
     - {fileID: 1107811709475548464, guid: 53e4182e0fd64164eab5529295292fd0, type: 2}
+    - {fileID: 1107417727586244850, guid: 32d75ca695525e84b9df972dd9e3a7ef, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.6118421
       e01: 0
@@ -494,6 +495,22 @@ MonoBehaviour:
       e11: 0.6118421
       e12: 0
       e13: 35.30921
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
       e20: 0
       e21: 0
       e22: 1
@@ -567,10 +584,10 @@ MonoBehaviour:
     height: 281
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5e0e0000
-    m_LastClickedID: 3678
-    m_ExpandedIDs: 9844ffffba4fffff52f9fffff0fbffff00000000020e0000120e0000260e0000
+    scrollPos: {x: 0, y: 8}
+    m_SelectedIDs: 220a0000
+    m_LastClickedID: 0
+    m_ExpandedIDs: f0fbffff00000000ec0c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -631,20 +648,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/HTW/Scripts
+    - Assets/ParallaxDuskMountainBackgroundArtwork/Layers
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/HTW/Scripts
+  - Assets/ParallaxDuskMountainBackgroundArtwork/Layers
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Baum\Documents\GitHub\GaTe_ue2\New Unity Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 680d0000
-    m_LastClickedID: 3432
-    m_ExpandedIDs: 000000000209000012090000840a0000b40d0000ffffff7f
+    m_SelectedIDs: d00b0000
+    m_LastClickedID: 3024
+    m_ExpandedIDs: 00000000ee080000fa0800002c0a0000820c0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -672,7 +689,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000209000012090000840a0000b40d0000ffffff7f
+    m_ExpandedIDs: 00000000ee080000fa0800002c0a0000820c0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     float invTime = 2;
     bool lookDir;
     Animator anim;
+    public GameController gc;
    
 
     // Use this for initialization
@@ -27,41 +28,47 @@ public class PlayerMovement : MonoBehaviour {
         anim = GetComponent<Animator>();
         currHP = maxHP;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		move = new Vector2 (Input.GetAxisRaw ("Horizontal"), 0);
-        if (move.x > 0 && !lookDir)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!gc.end)
         {
-            Rotate();
-            
-        }
-        if (move.x < 0 && lookDir)
-        {
-            Rotate();
-        }
-
-        if (invul > 0)
-            invul -= Time.deltaTime;
-
-        if (invul < 0)
-            invul = 0;
-
-        if (atkTimer > 0)
-            atkTimer -= Time.deltaTime;
-
-        if (atkTimer < 0)
-            atkTimer = 0;
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (atkTimer == 0)
+            move = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+            if (move.x > 0 && !lookDir)
             {
+                Rotate();
+
+            }
+            if (move.x < 0 && lookDir)
+            {
+                Rotate();
+            }
+
+            if (invul > 0)
+                invul -= Time.deltaTime;
+
+            if (invul < 0)
+                invul = 0;
+
+            if (atkTimer > 0)
+                atkTimer -= Time.deltaTime;
+
+            if (atkTimer < 0)
+                atkTimer = 0;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (atkTimer == 0)
+                {
                     MeleeAttack();
                     atkTimer = atkCD;
+                }
             }
+
         }
     }
+    
 	
     void Rotate()
     {
